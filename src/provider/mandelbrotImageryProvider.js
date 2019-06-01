@@ -9,11 +9,6 @@ function mandelbrotImageryProvider(options) {
     options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
     this._tilingScheme = defined(options.tilingScheme) ? options.tilingScheme : new GeographicTilingScheme({ ellipsoid : options.ellipsoid });
-    this._cells = defaultValue(options.cells, 8);
-    this._color = defaultValue(options.color, defaultColor);
-    this._glowColor = defaultValue(options.glowColor, defaultGlowColor);
-    this._glowWidth = defaultValue(options.glowWidth, 6);
-    this._backgroundColor = defaultValue(options.backgroundColor, defaultBackgroundColor);
     this._errorEvent = new Event();
 
     this._tileWidth = defaultValue(options.tileWidth, 256);
