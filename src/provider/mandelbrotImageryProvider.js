@@ -1,10 +1,6 @@
 import {Event, defaultValue, defineProperties, Color, defined, when, GeographicTilingScheme} from 'cesium';
 import createMainKernel from '../fractals/mandelbrot.gpu';
 
-var defaultColor = new Color(1.0, 1.0, 1.0, 0.4);
-var defaultGlowColor = new Color(0.0, 1.0, 0.0, 0.05);
-var defaultBackgroundColor = new Color(0.0, 0.5, 0.0, 0.2);
-
 function mandelbrotImageryProvider(options) {
     options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 

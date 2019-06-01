@@ -3,7 +3,7 @@ import GPU from 'gpu.js';
 const gpu = new GPU();
 
 function createMainKernel(width, height) {
-    return gpu.createKernel(function(minX,maxX,minY,maxY, iterations){
+    const fn = function(minX,maxX,minY,maxY, iterations){
         const cx=minX+(maxX-minX)*this.thread.x/(this.constants.width-1);
         const cy=minY+(maxY-minY)*this.thread.y/(this.constants.height-1);
     
@@ -38,7 +38,9 @@ function createMainKernel(width, height) {
                 this.color(1*(c-2),1,1,1);
             }
         }
-    },{
+    };
+
+    return gpu.createKernel(fn,{
         constants:{
             width:width,
             height:height
